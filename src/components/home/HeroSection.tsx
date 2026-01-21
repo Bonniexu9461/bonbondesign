@@ -63,19 +63,12 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="w-full h-[600px] rounded-[2rem] overflow-hidden shadow-2xl"
+          className="w-full h-[600px] rounded-[2rem] overflow-hidden shadow-2xl relative"
         >
-          <div className="absolute inset-0 w-full h-full bg-black pointer-events-none">
-             <video 
-               src="/videos/kling_20260114_Image_to_Video_move_the_c_2438_0.mp4"
-               className="absolute inset-0 w-full h-full object-cover"
-               autoPlay
-               loop
-               muted
-               playsInline
-               title="bonbon_hero_background"
-             />
-          </div>
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/gradients/8169770.jpg')" }}
+          />
           
           {/* Grain Overlay */}
           <div className="absolute inset-0 bg-white/5 mix-blend-overlay" />

@@ -57,7 +57,7 @@ export const Header = () => {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
     >
-      <div className="bg-[#5c5c5c]/50 backdrop-blur-xl rounded-full pl-6 pr-2 py-2 flex items-center gap-8 shadow-2xl border border-white/10 max-w-2xl w-full justify-between">
+      <div className="bg-[#5c5c5c]/50 backdrop-blur-xl rounded-full pl-6 pr-2 py-2 flex items-center justify-between shadow-2xl border border-white/10 max-w-2xl w-full">
         
         {/* Logo */}
         <Link to="/" className="flex-shrink-0">

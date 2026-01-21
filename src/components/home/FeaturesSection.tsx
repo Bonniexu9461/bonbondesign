@@ -83,7 +83,7 @@ const FeatureCard = ({ feature }: { feature: typeof features[0] }) => {
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="py-24 px-4 relative">
+    <section id="features" className="py-24 md:px-4 px-0 relative">
       <div className="container mx-auto max-w-6xl relative">
         
         {/* Main Card Container */}

@@ -48,7 +48,16 @@ export const Footer = () => {
 
       </div>
 
-      {/* Footer Navigation (Bottom Left) - Removed */}
+      {/* Footer Navigation (Bottom Center) */}
+      <div className="absolute bottom-10 w-full px-8 md:px-16 flex justify-center">
+        <div className="flex flex-wrap justify-center gap-8 text-white/60 text-sm font-sans font-medium tracking-wide">
+          <Link to="/#about" className="hover:text-white transition-colors">ABOUT</Link>
+          <a href="/#work" className="hover:text-white transition-colors">WORK</a>
+          <a href="/#features" className="hover:text-white transition-colors">FEATURES</a>
+          <a href="/#pricing" className="hover:text-white transition-colors">PRICING</a>
+          <Link to="/legal" className="hover:text-white transition-colors">LEGAL</Link>
+        </div>
+      </div>
     </footer>
   );
 };
