@@ -33,11 +33,11 @@ const carePlanFeatures = [
 
 export const PricingSection = () => {
   return (
-    <section id="pricing" className="py-24 bg-[#ECE6E8]">
+    <section id="pricing" className="py-16 md:py-24 bg-[#ECE6E8]">
       <div className="container mx-auto px-4 max-w-6xl">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
            <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">
               Pricing
            </div>

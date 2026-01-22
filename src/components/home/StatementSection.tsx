@@ -4,8 +4,8 @@ import { Star } from 'lucide-react';
 
 export const StatementSection = () => {
   return (
-    <section className="py-24 bg-[#ECE6E8] px-4 relative">
-      <div className="container mx-auto max-w-6xl relative">
+    <section className="py-24 bg-[#ECE6E8] px-0 md:px-4 relative">
+      <div className="container mx-auto max-w-6xl relative px-4 md:px-0">
         
         {/* Section Header */}
         <div className="text-center mb-20">

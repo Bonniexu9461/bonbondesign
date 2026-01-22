@@ -83,14 +83,14 @@ const FeatureCard = ({ feature }: { feature: typeof features[0] }) => {
 
 export const FeaturesSection = () => {
   return (
-    <section id="features" className="py-24 md:px-4 px-0 relative">
-      <div className="container mx-auto max-w-6xl relative">
+    <section id="features" className="py-16 md:py-24 md:px-4 px-0 relative">
+      <div className="container mx-auto max-w-6xl relative px-4 md:px-0">
         
         {/* Main Card Container */}
         <div className="bg-white rounded-[2rem] p-8 md:p-20 shadow-xl relative z-10">
             
             {/* Header */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 md:mb-16">
                 <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">
                   Features
                 </div>

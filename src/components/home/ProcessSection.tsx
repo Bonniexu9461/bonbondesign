@@ -374,10 +374,10 @@ export const ProcessSection = () => {
   };
 
   return (
-    <section id="about" className="pt-0 pb-24 bg-[#ECE6E8] -mt-56 relative z-10">
-      <div className="container mx-auto px-4 max-w-6xl mb-32">
+    <section id="about" className="pt-0 pb-16 md:pb-24 bg-[#ECE6E8] -mt-56 relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl mb-24 md:mb-32">
         {/* Top Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <div className="flex justify-center mb-6">
             <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">
               About
@@ -481,14 +481,14 @@ export const ProcessSection = () => {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative bg-cover bg-center rounded-[2rem] p-12 md:p-20 text-white overflow-hidden shadow-2xl"
-          style={{ backgroundImage: "url('/images/gradients/kunal-patil.jpg')" }}
+          className="relative bg-cover bg-left md:bg-center rounded-[2rem] p-12 md:p-20 text-white overflow-hidden shadow-2xl"
+          style={{ backgroundImage: "url('/images/gradients/asif-aether.jpg')" }}
         >
           {/* Grain Overlay */}
           <div className="absolute inset-0 bg-black/10 mix-blend-overlay pointer-events-none" />
@@ -506,7 +506,7 @@ export const ProcessSection = () => {
           </div>
 
           {/* AI Customizer Input */}
-          <div className="relative z-20 max-w-xl md:max-w-xl w-full mx-auto mb-16 px-4">
+          <div className="relative z-20 max-w-2xl md:max-w-xl w-full mx-auto mb-12 md:mb-16 px-0 md:px-4">
             <div className="text-center mb-4 text-white/80 flex items-center justify-center gap-2 text-sm font-sans">
               <Sparkles size={14} className="text-purple-300" />
               <span className="text-base">Enter your industry below to see how we tailor your 14-day sprint:</span>
@@ -518,7 +518,7 @@ export const ProcessSection = () => {
                 onChange={(e) => setIndustry(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handlePersonalize()}
                 placeholder="e.g. Lawyer, Yoga Studio..."
-                className="w-full pl-6 pr-[160px] py-4 rounded-full bg-white/95 backdrop-blur-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-500/30 shadow-2xl transition-all font-sans text-lg"
+                className="w-full pl-6 pr-[120px] xs:pr-[130px] sm:pr-[160px] py-4 rounded-full bg-white/95 backdrop-blur-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-4 focus:ring-purple-500/30 shadow-2xl transition-all font-sans text-lg"
               />
               <div className="absolute right-2 top-2 bottom-2 flex items-center gap-2">
                 {isPersonalized && (
@@ -533,13 +533,13 @@ export const ProcessSection = () => {
                 <button
                   onClick={handlePersonalize}
                   disabled={loading}
-                  className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#6D28D9] disabled:from-purple-400 disabled:to-purple-400 text-white px-4 py-2.5 rounded-full font-semibold text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="bg-gradient-to-r from-[#8B5CF6] to-[#7C3AED] hover:from-[#7C3AED] hover:to-[#6D28D9] disabled:from-purple-400 disabled:to-purple-400 text-white px-3 sm:px-4 py-2.5 rounded-full font-semibold text-[10px] xs:text-xs sm:text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
                 >
                   {loading ? (
-                    <Loader2 className="animate-spin w-4 h-4" />
+                    <Loader2 className="animate-spin w-3 h-3 sm:w-4 sm:h-4" />
                   ) : (
                     <>
-                      <Sparkles className="w-4 h-4" />
+                      <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>Personalize</span>
                     </>
                   )}
