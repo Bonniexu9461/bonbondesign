@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bonbondesign.com/sitemap.xml

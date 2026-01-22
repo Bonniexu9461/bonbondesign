@@ -2,10 +2,16 @@ import React from 'react';
 import { ContactForm } from '../components/contact/ContactForm';
 import { motion } from 'framer-motion';
 import { Mail, MapPin } from 'lucide-react';
+import { SEO } from '../components/SEO';
 
 export const ContactPage = () => {
   return (
     <div className="bg-background min-h-screen">
+      <SEO 
+        title="Contact Us | Bonbon Design - Start Your Project"
+        description="Ready to transform your online presence? Contact Bonbon Design in Brisbane to start your 14-day website sprint today."
+        url="https://bonbondesign.com/contact"
+      />
       <section className="pt-20 pb-12 md:pt-32 md:pb-24 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
