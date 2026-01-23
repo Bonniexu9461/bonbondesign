@@ -83,7 +83,10 @@ export const Header = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-            <a href="https://tally.so/r/2EBZlV" target="_blank" rel="noopener noreferrer">
+            <a href="#footer-form" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
               <Button size="sm" className="bg-[#6214d9] hover:bg-[#5010b0] text-white rounded-full px-6 py-2 h-auto text-xs font-bold uppercase tracking-wider shadow-lg">
                 Book a call
               </Button>
@@ -118,7 +121,11 @@ export const Header = () => {
                 {link.name}
               </a>
             ))}
-            <a href="https://tally.so/r/2EBZlV" target="_blank" rel="noopener noreferrer" className="w-full mt-2">
+            <a href="#footer-form" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+              setIsOpen(false);
+            }} className="w-full mt-2">
               <Button className="w-full bg-[#6214d9] rounded-xl py-3 text-sm font-bold">
                 Book a call
               </Button>

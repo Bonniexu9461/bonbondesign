@@ -41,10 +41,15 @@ export const MobileFloatingCTA = () => {
           className={`fixed bottom-6 z-50 md:hidden ${isExpanded ? 'left-4 right-4' : 'right-4'}`}
         >
           <a 
-            href="https://tally.so/r/2EBZlV" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            onClick={handleClick}
+            href="#footer-form"
+            onClick={(e) => {
+              if (!isExpanded) {
+                handleClick(e);
+              } else {
+                e.preventDefault();
+                document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
             className="block w-full"
           >
             <motion.div
