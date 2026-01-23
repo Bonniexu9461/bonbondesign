@@ -16,7 +16,7 @@ export const SEO = ({
   name = "Bonbon Design",
   type = "website",
   image = "/images/og-image.jpg", // Make sure to add an actual OG image later
-  url = "https://bonbondesign.com" // Replace with actual domain
+  url = "https://www.bonbondesign.com.au" // Replace with actual domain
 }: SEOProps) => {
   
   const structuredData = {

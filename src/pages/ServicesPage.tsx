@@ -23,7 +23,7 @@ export const ServicesPage = () => {
       <SEO 
         title="Our Services | Bonbon Design - Web Design Sprints"
         description="Explore our 7-Day Web Design Sprint. A complete website package including SEO, CMS, and custom design for a fixed price."
-        url="https://bonbondesign.com/services"
+        url="https://www.bonbondesign.com.au/services"
       />
       {/* Hero */}
       <section className="pt-20 pb-12 md:pt-32 md:pb-20 text-center px-4">

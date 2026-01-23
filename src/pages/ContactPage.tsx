@@ -10,7 +10,7 @@ export const ContactPage = () => {
       <SEO 
         title="Contact Us | Bonbon Design - Start Your Project"
         description="Ready to transform your online presence? Contact Bonbon Design in Brisbane to start your 14-day website sprint today."
-        url="https://bonbondesign.com/contact"
+        url="https://www.bonbondesign.com.au/contact"
       />
       <section className="pt-20 pb-12 md:pt-32 md:pb-24 px-4">
         <div className="container mx-auto max-w-6xl">

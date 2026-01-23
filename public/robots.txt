@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://bonbondesign.com/sitemap.xml
+Sitemap: https://www.bonbondesign.com.au/sitemap.xml

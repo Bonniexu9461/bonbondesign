@@ -41,12 +41,12 @@ export const HeroSection = () => {
           className="flex flex-row items-center justify-center gap-3 md:gap-6 mb-12 flex-nowrap"
         >
           <Link to="https://tally.so/r/2EBZlV" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-5 md:px-10 py-4 md:py-5 text-sm md:text-lg shadow-lg shadow-purple-500/20 whitespace-nowrap">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 md:px-12 py-5 md:py-6 text-base md:text-xl shadow-lg shadow-purple-500/20 whitespace-nowrap">
               Book 15-min call
             </Button>
           </Link>
           <Link to="#pricing">
-            <Button variant="secondary" size="lg" className="rounded-full px-5 md:px-10 py-4 md:py-5 text-sm md:text-lg bg-[#808080] text-white hover:bg-[#666666] shadow-lg shadow-gray-400/20 whitespace-nowrap">
+            <Button variant="secondary" size="lg" className="rounded-full px-6 md:px-12 py-5 md:py-6 text-base md:text-xl bg-[#808080] text-white hover:bg-[#666666] shadow-lg shadow-gray-400/20 whitespace-nowrap">
               See pricing
             </Button>
           </Link>

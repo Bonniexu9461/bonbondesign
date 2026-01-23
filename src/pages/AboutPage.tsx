@@ -8,7 +8,7 @@ export const AboutPage = () => {
       <SEO 
         title="About Us | Bonbon Design - Brisbane Web Agency"
         description="Learn about Bonbon Design's mission to bridge the gap between DIY and big agencies. We prioritize speed, quality, and transparency."
-        url="https://bonbondesign.com/about"
+        url="https://www.bonbondesign.com.au/about"
       />
       <section className="pt-20 pb-12 md:pt-32 md:pb-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">

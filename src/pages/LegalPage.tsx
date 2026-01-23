@@ -13,7 +13,7 @@ export const LegalPage = () => {
       <SEO 
         title="Legal Terms & Privacy | Bonbon Design"
         description="Read our terms of service, payment policies, and privacy commitment. Transparency is key to our partnerships."
-        url="https://bonbondesign.com/legal"
+        url="https://www.bonbondesign.com.au/legal"
       />
       <div className="pt-32 pb-24 bg-background min-h-screen">
         <div className="container mx-auto px-4 max-w-4xl">
