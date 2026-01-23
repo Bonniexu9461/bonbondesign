@@ -12,8 +12,8 @@ export const HomePage = () => {
   return (
     <>
       <SEO 
-        title="Bonbon Design | Custom Websites in 14 Days"
-        description="Get a high-performance, custom-coded website tailored to your brand in just 14 days. No templates, just speed and style. Book your sprint today."
+        title="Brisbane Website Design | Custom Sites in 14 Days | Bonbon Design"
+        description="Brisbane website design for small businesses and startups. Get a high-performance, custom-coded website tailored to your brand in just 14 days."
       />
       <HeroSection />
       <ProcessSection />

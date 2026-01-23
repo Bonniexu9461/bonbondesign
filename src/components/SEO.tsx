@@ -11,8 +11,8 @@ interface SEOProps {
 }
 
 export const SEO = ({
-  title = "Bonbon Design | Custom Websites in 14 Days",
-  description = "Professional, AI-augmented websites delivered in just 14 days. Bonbon Design builds high-performance, custom-coded sites tailored to your industry.",
+  title = "Brisbane Website Design | Custom Sites in 14 Days | Bonbon Design",
+  description = "Brisbane website design for small businesses and startups. Professional, AI-augmented websites delivered in just 14 days. Custom-coded for speed and style.",
   name = "Bonbon Design",
   type = "website",
   image = "/images/og-image.jpg", // Make sure to add an actual OG image later
@@ -21,8 +21,9 @@ export const SEO = ({
   
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebDesignAgency",
+    "@type": "LocalBusiness",
     "name": "Bonbon Design",
+    "image": `${url}/images/og-image.jpg`,
     "url": url,
     "logo": `${url}/images/logo/bonbon-logo-2-reversed.svg`,
     "description": description,
@@ -33,10 +34,30 @@ export const SEO = ({
       "addressRegion": "QLD",
       "addressCountry": "AU"
     },
-    "openingHours": "Mo-Fr 09:00-17:00",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -27.4705,
+      "longitude": 153.0260
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Brisbane"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
     "sameAs": [
-      "https://www.instagram.com/bonbondesign", // Example
-      "https://www.linkedin.com/company/bonbondesign" // Example
+      "https://www.instagram.com/bonbondesign", 
+      "https://www.linkedin.com/company/bonbondesign"
     ]
   };
 
