@@ -107,7 +107,7 @@ export const FooterContactForm = () => {
               <span>Hurry, only 3 spots left.</span>
             </div>
             <h2 className="text-5xl md:text-6xl lg:text-7xl tracking-tight mb-4 text-white leading-tight">
-              <span className="font-sans font-medium">Are you</span> <br />
+              <span className="font-sans font-medium">Are you</span> <br className="hidden md:block" />
               <span className="font-serif italic font-normal">ready?</span>
             </h2>
             <p className="text-xl text-white/80 font-sans font-normal">

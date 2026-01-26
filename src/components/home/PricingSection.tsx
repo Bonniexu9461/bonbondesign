@@ -26,7 +26,7 @@ const carePlanFeatures = [
   "Hosting management",
   "Monthly backups",
   "Security updates",
-  "30 mins content updates/month",
+  "2 hours content updates/month",
   "Priority email support",
   "Monthly check-in"
 ];
