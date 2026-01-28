@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { RefreshCw, Send, ThumbsUp, FileText, Code, Palette, Rocket, Zap, Award, CheckCircle, Sparkles, Loader2 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { GlobalBrands } from './GlobalBrands';
 
 const defaultSteps = [
   {
@@ -405,8 +406,6 @@ export const ProcessSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: Content */}
           <div className="space-y-8 pr-0 lg:pr-8">
-
-
             <div className="space-y-6 text-[#928D89] text-[16px] leading-relaxed font-sans">
               <p className="font-bold text-[#0D0D0D]">
                 I know the value of your time.
@@ -427,59 +426,19 @@ export const ProcessSection = () => {
             </div>
           </div>
 
-          {/* Right: The 7-Day Sprint Model Card */}
-          <div
-            className="bg-cover bg-right rounded-[2.5rem] p-10 border border-white/10 shadow-2xl relative overflow-hidden"
-            style={{ backgroundImage: "url('/images/gradients/abstract-gradient-background-with-grain-texture-captivating-noise-airbrush-minimalist-wallpaper.jpg')" }}
-          >
-            {/* Grain Overlay */}
-            <div className="absolute inset-0 bg-white/5 mix-blend-overlay pointer-events-none" />
-
-            <div className="relative z-10 h-full flex flex-col justify-between">
-              <div className="space-y-10">
-                {/* Item 1 */}
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
-                    <Zap size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-2 font-sans">Direct Access</h4>
-                    <p className="text-white/70 text-sm leading-relaxed font-sans">
-                      Work with me, not an account manager.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Item 2 */}
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
-                    <Code size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-2 font-sans">Beyond DIY</h4>
-                    <p className="text-white/70 text-sm leading-relaxed font-sans">
-                      Custom code that out-performs templates.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Item 3 */}
-                <div className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white shadow-sm backdrop-blur-sm">
-                    <Rocket size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-2 font-sans">14-Day Sprint</h4>
-                    <p className="text-white/70 text-sm leading-relaxed font-sans">
-                      Launch while the momentum is still high.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Right: Bonnie's Portrait */}
+          <div className="relative h-full min-h-[500px] rounded-[1.5rem] overflow-hidden shadow-2xl">
+            <img 
+              src="/images/bonnie-portrait.jpg" 
+              alt="Bonnie - Founder & Lead Designer" 
+              className="absolute inset-0 w-full h-full object-cover object-[center_80%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
+
+      <GlobalBrands />
 
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div

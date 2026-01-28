@@ -19,7 +19,7 @@ export const HomePage = () => {
       <ProcessSection />
       <ShowcaseSection />
       <FeaturesSection />
-      <StatementSection />
+      {/* <StatementSection /> */}
       <PricingSection />
       <FAQSection />
     </>
