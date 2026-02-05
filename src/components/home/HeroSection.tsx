@@ -48,11 +48,14 @@ export const HeroSection = () => {
               Book 15-min call
             </Button>
           </a>
-          <Link to="#pricing">
+          <a href="#pricing" onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
+          }}>
             <Button variant="secondary" size="lg" className="rounded-full px-6 md:px-12 py-5 md:py-6 text-base md:text-xl bg-[#808080] text-white hover:bg-[#666666] shadow-lg shadow-gray-400/20 whitespace-nowrap">
               See pricing
             </Button>
-          </Link>
+          </a>
         </motion.div>
 
       </div>

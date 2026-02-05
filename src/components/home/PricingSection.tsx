@@ -86,7 +86,10 @@ export const PricingSection = () => {
             <div className="flex justify-between items-center mt-auto">
               <span className="text-2xl font-medium text-text-dark">$2,899</span>
               
-              <a href="https://tally.so/r/2EBZlV" target="_blank" rel="noopener noreferrer">
+              <a href="#footer-form" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+              }}>
                 <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-6 py-6 text-base font-medium flex items-center gap-2">
                   Get Started <ArrowRight size={18} />
                 </Button>
@@ -136,7 +139,10 @@ export const PricingSection = () => {
             <div className="flex justify-between items-center mt-auto">
               <span className="text-2xl font-medium text-white">$5,499</span>
               
-              <a href="https://tally.so/r/2EBZlV" target="_blank" rel="noopener noreferrer">
+              <a href="#footer-form" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+              }}>
                 <Button className="bg-primary text-white hover:bg-primary/90 rounded-full px-6 py-6 text-base font-medium flex items-center gap-2">
                   Get started <ArrowRight size={18} />
                 </Button>
@@ -181,9 +187,14 @@ export const PricingSection = () => {
                 <p className="text-text-muted text-sm mt-2">Minor updates, priority support, peace of mind.</p>
               </div>
               
-              <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-8 py-6 text-base font-medium flex items-center gap-2 justify-center w-full md:w-auto">
-                Get Started <ArrowRight size={18} />
-              </Button>
+              <a href="#footer-form" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+              }} className="w-full md:w-auto">
+                <Button className="bg-black text-white hover:bg-gray-800 rounded-full px-8 py-6 text-base font-medium flex items-center gap-2 justify-center w-full md:w-auto">
+                  Get Started <ArrowRight size={18} />
+                </Button>
+              </a>
            </div>
         </motion.div>
       </div>

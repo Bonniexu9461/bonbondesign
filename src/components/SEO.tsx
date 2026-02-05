@@ -25,7 +25,7 @@ export const SEO = ({
     "name": "Bonbon Design",
     "image": `${url}/images/og-image.jpg`,
     "url": url,
-    "logo": `${url}/images/logo/bonbon-logo-2-reversed.svg`,
+    "logo": `${url}/images/logo/bonbon-logo-white.svg`,
     "description": description,
     "priceRange": "$$$",
     "address": {

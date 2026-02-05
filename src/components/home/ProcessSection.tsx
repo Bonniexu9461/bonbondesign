@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { RefreshCw, Send, ThumbsUp, FileText, Code, Palette, Rocket, Zap, Award, CheckCircle, Sparkles, Loader2 } from 'lucide-react';
+import { GoogleGenAI } from "@google/genai";
 import { Button } from '../ui/Button';
-import { GlobalBrands } from './GlobalBrands';
 
 const defaultSteps = [
   {
@@ -250,28 +250,78 @@ export const ProcessSection = () => {
 
       let data;
       try {
-        const response = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${apiKey}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              contents: [{ parts: [{ text: systemPrompt }] }],
-              generationConfig: {
-                responseMimeType: "application/json"
-              }
-            }),
+        const rawKey = apiKey?.trim() || "";
+        console.log("Attempting Gemini AI. Initial key length:", rawKey.length);
+        
+        // Generate possible variations of the key by swapping I (uppercase eye) and l (lowercase L)
+        // for any vertical bars found in the key. This fixes common OCR/typo issues.
+        const getVariations = (key: string): string[] => {
+          const variations: string[] = [key];
+          const indices: number[] = [];
+          for (let i = 0; i < key.length; i++) {
+            if (key[i] === 'I' || key[i] === 'l' || key[i] === '1') {
+              indices.push(i);
+            }
           }
-        );
+          
+          // To keep it simple and safe, we'll just try the most common swaps
+          // 1. Original
+          // 2. All vertical bars as 'l'
+          // 3. All vertical bars as 'I'
+          // 4. Start with 'AIza' (common Google prefix)
+          
+          let keyL = key;
+          let keyI = key;
+          for (const idx of indices) {
+            keyL = keyL.substring(0, idx) + 'l' + keyL.substring(idx + 1);
+            keyI = keyI.substring(0, idx) + 'I' + keyI.substring(idx + 1);
+          }
+          
+          const results = [key, keyL, keyI];
+          if (key.startsWith('Alza')) results.push('AIza' + key.substring(4));
+          return [...new Set(results)];
+        };
 
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
+        const keyVariations = getVariations(rawKey);
+        console.log(`Trying ${keyVariations.length} key variations...`);
+
+        let response;
+        let lastError;
+
+        for (const currentKey of keyVariations) {
+          const ai = new GoogleGenAI({ apiKey: currentKey });
+          const modelsToTry = ["gemini-1.5-flash", "gemini-pro"];
+          
+          for (const modelName of modelsToTry) {
+            try {
+              console.log(`Testing model ${modelName} with key variation...`);
+              response = await ai.models.generateContent({
+                model: modelName,
+                contents: [{ role: "user", parts: [{ text: systemPrompt }] }],
+              });
+              if (response && response.text) break;
+            } catch (e: any) {
+              lastError = e;
+              if (e.message?.includes("API key not valid")) continue;
+              break; // If it's a different error (like quota), don't bother with other variations
+            }
+          }
+          if (response && response.text) break;
         }
 
-        const responseData = await response.json();
-        const generatedSteps = JSON.parse(responseData.candidates[0].content.parts[0].text);
+        if (!response || !response.text) throw lastError || new Error("No response from AI");
+
+        let rawText = response.text;
+        console.log("Raw AI response received");
+        
+        // Clean markdown and any extra text
+        let jsonMatch = rawText.match(/\[[\s\S]*\]/);
+        if (!jsonMatch) {
+            jsonMatch = rawText.match(/\{[\s\S]*\}/);
+        }
+        
+        const cleanText = jsonMatch ? jsonMatch[0] : rawText;
+        const generatedSteps = JSON.parse(cleanText.trim());
         
         if (Array.isArray(generatedSteps) && generatedSteps.length >= 4) {
           // Convert array format to our object format
@@ -375,71 +425,7 @@ export const ProcessSection = () => {
   };
 
   return (
-    <section id="about" className="pt-0 pb-16 md:pb-24 bg-[#ECE6E8] -mt-56 relative z-10">
-      <div className="container mx-auto px-4 max-w-6xl mb-24 md:mb-32">
-        {/* Top Header */}
-        <div className="text-center mb-12 md:mb-20">
-          <div className="flex justify-center mb-6">
-            <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">
-              About
-            </div>
-          </div>
-          <h2 className="text-5xl md:text-7xl font-sans font-medium text-[#0D0D0D] leading-none mb-2 tracking-tight">
-            The Bridge Between
-          </h2>
-          <div className="relative inline-block mt-2">
-            <span className="font-serif italic font-normal text-5xl md:text-7xl text-[#0D0D0D]">
-              <span className="relative inline-block">
-                DIY
-                <span className="absolute top-[55%] left-[-5%] w-[110%] h-[3px] bg-[#8A8A8A] -translate-y-1/2 transform" />
-              </span>
-              <span className="font-sans not-italic font-medium mx-4">and</span>
-              <span className="relative inline-block">
-                Big Agency.
-                <span className="absolute top-[55%] left-[-5%] w-[110%] h-[3px] bg-[#8A8A8A] -translate-y-1/2 transform" />
-              </span>
-            </span>
-          </div>
-        </div>
-
-        {/* Two Column Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left: Content */}
-          <div className="space-y-8 pr-0 lg:pr-8">
-            <div className="space-y-6 text-[#928D89] text-[16px] leading-relaxed font-sans">
-              <p className="font-bold text-[#0D0D0D]">
-                I know the value of your time.
-              </p>
-              <p>
-                I started Bonbon Design because Brisbane businesses were getting stuck—paying $5k+ to agencies for slow results, or struggling with DIY builders that never looked right.
-              </p>
-              <p>
-                As a designer and mum, I prioritize efficiency. No endless meetings or 3-month delays. Just high-care, professional websites delivered in 14 days.
-              </p>
-
-              <div className="pt-12 mt-12 border-t border-[#0D0D0D]/10">
-                <div className="flex flex-col gap-1">
-                  <p className="font-serif italic text-[32px] text-[#0D0D0D]">Bonnie</p>
-                  <p className="font-sans text-[11px] font-bold tracking-[0.2em] text-[#928D89] uppercase">Founder & Lead Designer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Bonnie's Portrait */}
-          <div className="relative h-full min-h-[500px] rounded-[1.5rem] overflow-hidden shadow-2xl">
-            <img 
-              src="/images/bonnie-portrait.jpg" 
-              alt="Bonnie - Founder & Lead Designer" 
-              className="absolute inset-0 w-full h-full object-cover object-[center_80%]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-          </div>
-        </div>
-      </div>
-
-      <GlobalBrands />
-
+    <section id="process" className="py-16 md:py-24 bg-[#ECE6E8]">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -534,7 +520,10 @@ export const ProcessSection = () => {
             <p className="text-white/60 text-sm italic mb-8">
               *Timeline requires client feedback within 24 hours to ensure delivery.
             </p>
-            <a href="https://tally.so/r/2EBZlV" target="_blank" rel="noopener noreferrer">
+            <a href="#footer-form" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-10 py-5 text-lg shadow-lg shadow-purple-500/20">
                 Book 15-min intro
               </Button>

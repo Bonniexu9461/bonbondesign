@@ -1,8 +1,9 @@
 import React from 'react';
 import { SEO } from '../components/SEO';
 import { HeroSection } from '../components/home/HeroSection';
-import { ProcessSection } from '../components/home/ProcessSection';
+import { AboutSection } from '../components/home/AboutSection';
 import { ShowcaseSection } from '../components/home/ShowcaseSection';
+import { ProcessSection } from '../components/home/ProcessSection';
 import { FeaturesSection } from '../components/home/FeaturesSection';
 import { StatementSection } from '../components/home/StatementSection';
 import { PricingSection } from '../components/home/PricingSection';
@@ -16,8 +17,9 @@ export const HomePage = () => {
         description="Brisbane website design for small businesses and startups. Get a high-performance, custom-coded website tailored to your brand in just 14 days."
       />
       <HeroSection />
-      <ProcessSection />
+      <AboutSection />
       <ShowcaseSection />
+      <ProcessSection />
       <FeaturesSection />
       {/* <StatementSection /> */}
       <PricingSection />

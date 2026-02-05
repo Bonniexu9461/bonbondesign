@@ -2,7 +2,7 @@ import React from 'react';
 
 export const GlobalBrands = () => {
   return (
-    <div className="container mx-auto px-4 max-w-6xl mb-24 md:mb-32">
+    <div className="container mx-auto px-4 max-w-6xl mb-12 md:mb-16">
         <p className="text-center text-[#928D89] text-sm uppercase tracking-widest font-bold mb-10 md:mb-12">
           Working experience with global brands
         </p>

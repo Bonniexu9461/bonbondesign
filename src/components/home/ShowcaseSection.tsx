@@ -33,7 +33,7 @@ const marqueeProjects = [...projects, ...projects, ...projects, ...projects];
 
 export const ShowcaseSection = () => {
   return (
-    <section id="work" className="py-24 bg-[#ECE6E8] overflow-hidden">
+    <section id="work" className="pt-8 pb-24 bg-[#ECE6E8] overflow-hidden">
       <div className="container mx-auto px-4 text-center mb-16">
         <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">WORK</div>
         <h2 className="text-5xl md:text-7xl font-sans text-text-dark tracking-tight">

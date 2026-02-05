@@ -63,7 +63,7 @@ export const Header = () => {
         <Link to="/" className="flex-shrink-0">
           {/* Using text logo to match reference if image not perfect match, or keep using image but ensure it fits the style */}
            <div className="flex items-center justify-center rounded-full px-3 py-1">
-             <img src="/images/logo/bonbon-logo-2-reversed.svg" alt="bonbon logo" className="h-8 w-auto object-contain" />
+             <img src="/images/logo/bonbon-logo-white.svg" alt="bonbon logo" className="h-10 w-auto object-contain" />
            </div>
         </Link>
 

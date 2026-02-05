@@ -2,7 +2,6 @@ import React from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
-import { MobileFloatingCTA } from '../ui/MobileFloatingCTA';
 import { ElevenLabsChat } from '../ui/ElevenLabsChat';
 
 interface LayoutProps {
@@ -18,7 +17,6 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
-      <MobileFloatingCTA />
       <ElevenLabsChat />
     </div>
   );
