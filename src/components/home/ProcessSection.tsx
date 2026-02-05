@@ -250,79 +250,25 @@ export const ProcessSection = () => {
 
       let data;
       try {
-        const rawKey = apiKey?.trim() || "";
-        console.log("Attempting Gemini AI. Initial key length:", rawKey.length);
-        
-        // Generate possible variations of the key by swapping I (uppercase eye) and l (lowercase L)
-        // for any vertical bars found in the key. This fixes common OCR/typo issues.
-        const getVariations = (key: string): string[] => {
-          const variations: string[] = [key];
-          const indices: number[] = [];
-          for (let i = 0; i < key.length; i++) {
-            if (key[i] === 'I' || key[i] === 'l' || key[i] === '1') {
-              indices.push(i);
-            }
-          }
-          
-          // To keep it simple and safe, we'll just try the most common swaps
-          // 1. Original
-          // 2. All vertical bars as 'l'
-          // 3. All vertical bars as 'I'
-          // 4. Start with 'AIza' (common Google prefix)
-          
-          let keyL = key;
-          let keyI = key;
-          for (const idx of indices) {
-            keyL = keyL.substring(0, idx) + 'l' + keyL.substring(idx + 1);
-            keyI = keyI.substring(0, idx) + 'I' + keyI.substring(idx + 1);
-          }
-          
-          const results = [key, keyL, keyI];
-          if (key.startsWith('Alza')) results.push('AIza' + key.substring(4));
-          return [...new Set(results)];
-        };
+        const ai = new GoogleGenAI({ apiKey: apiKey.trim() });
 
-        const keyVariations = getVariations(rawKey);
-        console.log(`Trying ${keyVariations.length} key variations...`);
+        const response = await ai.models.generateContent({
+          model: "gemini-2.0-flash",
+          contents: systemPrompt,
+        });
 
-        let response;
-        let lastError;
-
-        for (const currentKey of keyVariations) {
-          const ai = new GoogleGenAI({ apiKey: currentKey });
-          const modelsToTry = ["gemini-1.5-flash", "gemini-pro"];
-          
-          for (const modelName of modelsToTry) {
-            try {
-              console.log(`Testing model ${modelName} with key variation...`);
-              response = await ai.models.generateContent({
-                model: modelName,
-                contents: [{ role: "user", parts: [{ text: systemPrompt }] }],
-              });
-              if (response && response.text) break;
-            } catch (e: any) {
-              lastError = e;
-              if (e.message?.includes("API key not valid")) continue;
-              break; // If it's a different error (like quota), don't bother with other variations
-            }
-          }
-          if (response && response.text) break;
-        }
-
-        if (!response || !response.text) throw lastError || new Error("No response from AI");
-
-        let rawText = response.text;
+        const rawText = response.text || "";
         console.log("Raw AI response received");
-        
+
         // Clean markdown and any extra text
         let jsonMatch = rawText.match(/\[[\s\S]*\]/);
         if (!jsonMatch) {
             jsonMatch = rawText.match(/\{[\s\S]*\}/);
         }
-        
+
         const cleanText = jsonMatch ? jsonMatch[0] : rawText;
         const generatedSteps = JSON.parse(cleanText.trim());
-        
+
         if (Array.isArray(generatedSteps) && generatedSteps.length >= 4) {
           // Convert array format to our object format
           data = {
