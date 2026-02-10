@@ -130,15 +130,26 @@ export const Header = () => {
                 {link.name}
               </a>
             ))}
-            <a href="#footer-form" onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
-              setIsOpen(false);
-            }} className="w-full mt-2">
-              <Button className="w-full bg-[#6214d9] rounded-xl py-3 text-sm font-bold">
-                Book a call
-              </Button>
-            </a>
+            <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
+              <a href="#process" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
+                setIsOpen(false);
+              }} className="w-full">
+                <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10 rounded-xl py-3 text-sm font-bold">
+                  ⚡️ Personalise Sprint
+                </Button>
+              </a>
+              <a href="#footer-form" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+                setIsOpen(false);
+              }} className="w-full">
+                <Button className="w-full bg-[#6214d9] rounded-xl py-3 text-sm font-bold">
+                  Book a call
+                </Button>
+              </a>
+            </div>
           </nav>
         </motion.div>
       )}

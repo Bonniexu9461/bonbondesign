@@ -191,7 +191,9 @@ export const ProcessSectionZH = () => {
             ))}
           </div>
           <div className="mt-16 text-center relative z-10">
-            <p className="text-white/60 text-sm italic mb-8">*时间线要求客户在 24 小时内提供反馈，以确保按时交付。</p>
+            <p className="text-white/60 text-sm italic mb-8 max-w-2xl mx-auto">
+              *这些 AI 生成的冲刺计划仅用于战略构思。我们将在沟通中最终确定您的定制范围和技术要求。时间线要求客户在 24 小时内提供反馈，以确保按时交付。
+            </p>
             <a href="#footer-form" onClick={(e) => {
               e.preventDefault();
               document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });

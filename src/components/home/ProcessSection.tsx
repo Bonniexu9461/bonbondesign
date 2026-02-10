@@ -465,8 +465,8 @@ export const ProcessSection = () => {
           </div>
 
           <div className="mt-16 text-center relative z-10">
-            <p className="text-white/60 text-sm italic mb-8">
-              *Timeline requires client feedback within 24 hours to ensure delivery.
+            <p className="text-white/60 text-sm italic mb-8 max-w-2xl mx-auto">
+              *These AI-generated sprints are for strategic ideation. We'll finalise your custom scope and technical requirements during our discovery call. Timeline requires client feedback within 24 hours to ensure delivery.
             </p>
             <a href="#footer-form" onClick={(e) => {
               e.preventDefault();
