@@ -54,42 +54,47 @@ export const HeaderZH = () => {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4"
     >
-      <div className="bg-[#5c5c5c]/50 backdrop-blur-xl rounded-full pl-6 pr-2 py-2 flex items-center justify-between shadow-2xl border border-white/10 max-w-2xl w-full">
+      <div className="bg-[#5c5c5c]/50 backdrop-blur-xl rounded-full px-6 py-2 flex items-center justify-between shadow-2xl border border-white/10 max-w-6xl w-full">
         
-        <Link to="/zh" className="flex-shrink-0">
-           <div className="flex items-center justify-center rounded-full px-3 py-1">
-             <img src="/images/logo/bonbon-logo-white.svg" alt="bonbon logo" className="h-10 w-auto object-contain" />
-           </div>
-        </Link>
+        {/* Left: Logo */}
+        <div className="flex-1 flex justify-start">
+          <Link to="/zh" className="flex-shrink-0">
+             <div className="flex items-center justify-center rounded-full px-3 py-1">
+               <img src="/images/logo/bonbon-logo-white.svg" alt="bonbon logo" className="h-10 w-auto object-contain" />
+             </div>
+          </Link>
+        </div>
 
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Middle: Desktop Navigation */}
+        <nav className="hidden md:flex items-center justify-center gap-12 flex-initial transform translate-x-[-80px]">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.path}
               onClick={(e) => scrollToSection(e, link.path)}
-                className="text-white/90 hover:text-white text-[10px] uppercase tracking-wider font-medium transition-colors cursor-pointer"
+                className="text-white/90 hover:text-white text-[14px] font-medium transition-colors cursor-pointer whitespace-nowrap"
               >
                 {link.name}
               </a>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-            <a href="#footer-form" onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
-            }}>
-              <Button size="sm" className="bg-[#6214d9] hover:bg-[#5010b0] text-white rounded-full px-6 py-2 h-auto text-[10px] font-bold uppercase tracking-wider shadow-lg">
-                预约咨询
-              </Button>
-            </a>
+        {/* Right: CTA Buttons */}
+        <div className="flex-1 hidden md:flex items-center justify-end gap-3">
             <a href="#process" onClick={(e) => {
               e.preventDefault();
               document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
             }}>
-              <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-full px-6 py-2 h-auto text-[10px] font-bold uppercase tracking-wider">
+              <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-full px-6 py-2 h-auto text-[14px] font-bold tracking-wider whitespace-nowrap">
                 ⚡️ 定制开发方案
+              </Button>
+            </a>
+            <a href="#footer-form" onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
+              <Button size="sm" className="bg-[#6214d9] hover:bg-[#5010b0] text-white rounded-full px-6 py-2 h-auto text-[14px] font-bold tracking-wider shadow-lg whitespace-nowrap">
+                预约咨询
               </Button>
             </a>
         </div>
