@@ -250,15 +250,17 @@ export const ProcessSection = () => {
 
       let data;
       try {
+        console.log("API Key exists:", !!apiKey, "Length:", apiKey?.length);
         const ai = new GoogleGenAI({ apiKey: apiKey.trim() });
 
         const response = await ai.models.generateContent({
-          model: "gemini-2.0-flash",
+          model: "gemini-2.0-flash-lite",
           contents: systemPrompt,
         });
 
-        const rawText = response.text || "";
-        console.log("Raw AI response received");
+        console.log("Full response:", response);
+        const rawText = response.text ?? "";
+        console.log("Raw AI response received:", rawText.substring(0, 200));
 
         // Clean markdown and any extra text
         let jsonMatch = rawText.match(/\[[\s\S]*\]/);

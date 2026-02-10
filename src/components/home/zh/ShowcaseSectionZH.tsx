@@ -5,7 +5,7 @@ const projects = [
   { 
     id: 1, 
     title: 'Clearpath Advisory', 
-    category: 'Accounting', 
+    category: '会计', 
     image: '/images/thumbnails/clearpath-advisory.png',
     link: 'https://clearpathadvisory.vercel.app',
     speed: 130
@@ -13,7 +13,7 @@ const projects = [
   { 
     id: 2, 
     title: 'Banksia & Bloom', 
-    category: 'Cafe', 
+    category: '咖啡厅', 
     image: '/images/thumbnails/banksia-bloom.png',
     link: 'https://banksiaandbloom.vercel.app',
     speed: 120
@@ -21,7 +21,7 @@ const projects = [
   { 
     id: 3, 
     title: 'Stillpoint', 
-    category: 'Yoga Studio', 
+    category: '瑜伽工作室', 
     image: '/images/thumbnails/stillpoint-yoga.png',
     link: 'https://stillpointyoga.vercel.app',
     speed: 150
@@ -103,7 +103,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
           {/* View Project Badge */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <span className="bg-white/90 backdrop-blur-md text-black px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium shadow-xl">
-              View Site
+              查看网站
             </span>
           </div>
         </div>
@@ -119,15 +119,15 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   );
 };
 
-export const ShowcaseSection = () => {
+export const ShowcaseSectionZH = () => {
   return (
     <section id="work" className="pt-8 pb-24 bg-[#ECE6E8] overflow-hidden">
       <div className="container mx-auto px-4 text-center mb-16">
-        <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">WORK</div>
+        <div className="inline-block px-4 py-1.5 rounded-full bg-[#9c9c9c] text-white text-xs font-medium mb-6 uppercase tracking-wider">作品</div>
         <h2 className="text-5xl md:text-7xl font-sans text-text-dark tracking-tight">
-          A <span className="font-serif italic font-normal">taste</span> of what we do.
+          我们的作品<span className="font-serif italic font-normal">一瞥</span>。
         </h2>
-        <p className="text-text-muted mt-6 text-lg">Hover over each site to explore the full design.</p>
+        <p className="text-text-muted mt-6 text-lg">将鼠标悬停在每个网站上以查看完整设计。</p>
       </div>
 
       <div className="container mx-auto px-4 max-w-6xl">

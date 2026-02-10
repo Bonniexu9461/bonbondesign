@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Button } from '../ui/Button';
+import { Button } from '../../ui/Button';
 import { Menu, X } from 'lucide-react';
 
-export const Header = () => {
+export const HeaderZH = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -19,29 +19,26 @@ export const Header = () => {
     }
   });
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
 
   const navLinks = [
-    { name: 'About', path: '/#about' },
-    { name: 'Work', path: '/#work' },
-    { name: 'Features', path: '/#features' },
-    { name: 'Pricing', path: '/#pricing' },
+    { name: '关于', path: '/zh#about' },
+    { name: '作品', path: '/zh#work' },
+    { name: '特色', path: '/zh#features' },
+    { name: '价格', path: '/zh#pricing' },
   ];
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    if (path.startsWith('/#')) {
+    if (path.includes('#')) {
       e.preventDefault();
-      const elementId = path.substring(2);
+      const elementId = path.split('#')[1];
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         setIsOpen(false);
       } else {
-        // If element not found (e.g. on another page), navigate to home then scroll
-        // For simple SPA with all sections on home, this fallback might just navigate
         window.location.href = path;
       }
     }
@@ -59,15 +56,12 @@ export const Header = () => {
     >
       <div className="bg-[#5c5c5c]/50 backdrop-blur-xl rounded-full pl-6 pr-2 py-2 flex items-center justify-between shadow-2xl border border-white/10 max-w-2xl w-full">
         
-        {/* Logo */}
-        <Link to="/" className="flex-shrink-0">
-          {/* Using text logo to match reference if image not perfect match, or keep using image but ensure it fits the style */}
+        <Link to="/zh" className="flex-shrink-0">
            <div className="flex items-center justify-center rounded-full px-3 py-1">
              <img src="/images/logo/bonbon-logo-white.svg" alt="bonbon logo" className="h-10 w-auto object-contain" />
            </div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
@@ -81,14 +75,13 @@ export const Header = () => {
           ))}
         </nav>
 
-        {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
             <a href="#footer-form" onClick={(e) => {
               e.preventDefault();
               document.getElementById('footer-form')?.scrollIntoView({ behavior: 'smooth' });
             }}>
               <Button size="sm" className="bg-[#6214d9] hover:bg-[#5010b0] text-white rounded-full px-6 py-2 h-auto text-[10px] font-bold uppercase tracking-wider shadow-lg">
-                Book a call
+                预约咨询
               </Button>
             </a>
             <a href="#process" onClick={(e) => {
@@ -96,12 +89,11 @@ export const Header = () => {
               document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
             }}>
               <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10 rounded-full px-6 py-2 h-auto text-[10px] font-bold uppercase tracking-wider">
-                ⚡️ Personalise Sprint
+                ⚡️ 定制开发方案
               </Button>
             </a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden p-2 text-white"
           onClick={() => setIsOpen(!isOpen)}
@@ -110,7 +102,6 @@ export const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation Overlay */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20, scale: 0.95 }}
@@ -135,7 +126,7 @@ export const Header = () => {
               setIsOpen(false);
             }} className="w-full mt-2">
               <Button className="w-full bg-[#6214d9] rounded-xl py-3 text-sm font-bold">
-                Book a call
+                预约咨询
               </Button>
             </a>
           </nav>
